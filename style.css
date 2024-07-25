@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    background: black;
+}
+
+.card {
+    width: 90%;
+    max-width: 470px;
+    background-image: url("images/bg.gif");
+    background-size: 100%;
+    color: azure;
+    margin: 100px auto 0;
+    border-radius: 20px;
+    border: 3px solid transparent; /* Transparent border for glow effect */
+    padding: 40px 35px;
+    text-align: center;
+    position: relative; /* Needed for pseudo-elements */
+
+    /* Neon glow effect */
+    box-shadow: 0 0 20px azure, 0 0 30px azure, 0 0 40px azure, 0 0 70px azure;
+}
+
+.card::before, .card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 20px;
+    background: azure;
+    z-index: -1;
+    opacity: 0.7;
+    pointer-events: none;
+    transition: opacity 0.3s ease-out;
+}
+
+.card::before {
+    width: calc(100% - 6px);
+    height: calc(100% - 6px);
+    margin: 3px;
+}
+
+.card::after {
+    width: calc(100% - 12px);
+    height: calc(100% - 12px);
+    margin: 6px;
+}
+
+.card:hover::before, .card:hover::after {
+    opacity: 0;
+}
+
+.card:hover {
+    border-color: azure;
+    box-shadow: 0 0 10px azure, 0 0 20px azure, 0 0 30px azure, 0 0 40px azure;
+}
+.search{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search input{
+    border: 0;
+    outline: 0;
+    background: azure;
+    color: #555;
+    padding: 10px 25px;
+    height: 60px;
+    border-radius: 30px;
+    flex: 1;
+    margin-right: 16px;
+    font-size: 18px;
+
+}
+.search button{
+    border: 0;
+    outline: 0;
+    background: #ebfffc;
+    border-radius: 50%;
+    width:60px;
+    height:60px;
+    cursor: pointer;
+
+
+}
+.search button img{
+    width: 16px;
+
+}
+.weather-icon{
+    width: 220px;
+    margin-top: 30px;
+}
+
+.weather h1{
+    font-size: 60px;
+    font-weight: 500;
+    margin-top: -15px;;
+}
+.weather h2{
+    font-size: 45px;
+    font-weight: 400;
+    margin-top: -10px;
+}
+
+.details{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-top: 50px;
+
+}
+
+.col{
+    display: flex;
+    align-items: center;
+    text-align:left;
+}
+
+.col img{
+    width:40px;
+    margin-right: 15px;
+}
+
+.humidity, .wind {
+    font-size: 28px;
+    margin-top: -6px;
+
+}
+.weather{
+    display: none;
+}
+.error{
+    text-align: left;
+    margin-left: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+    display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card {
+        padding: 30px 25px; /* Adjust padding */
+    }
+
+    .search input {
+        padding: 10px 20px; /* Adjust input padding */
+        font-size: 14px; /* Adjust font size */
+    }
+
+    .search button {
+        width: 40px; /* Further reduce button size */
+        height: 40px;
+    }
+
+    .weather h1 {
+        font-size: 35px; /* Adjust font size */
+    }
+
+    .weather h2 {
+        font-size: 25px; /* Adjust font size */
+    }
+
+    .details {
+        margin-top: 20px; /* Adjust margin */
+    }
+
+    .col img {
+        width: 25px; /* Further reduce image size */
+        margin-right: 8px; /* Reduce margin */
+    }
+
+    .humidity, .wind {
+        font-size: 18px; /* Adjust font size */
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        margin: 50px auto 20px; /* Adjust margin */
+    }
+
+    .search {
+        flex-direction: column; /* Stack search items vertically */
+        align-items: stretch; /* Stretch items to full width */
+    }
+
+    .search input {
+        margin-right: 0; /* Remove margin */
+        margin-bottom: 10px; /* Add space between elements */
+    }
+
+    .search button {
+        width: 100%; /* Full width button */
+        margin-bottom: 10px; /* Add space between elements */
+    }
+
+    .weather h1 {
+        font-size: 30px; /* Adjust font size */
+    }
+
+    .weather h2 {
+        font-size: 22px; /* Adjust font size */
+    }
+}
